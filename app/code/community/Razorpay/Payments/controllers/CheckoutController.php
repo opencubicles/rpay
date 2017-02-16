@@ -55,7 +55,25 @@ class Razorpay_Payments_CheckoutController extends Mage_Core_Controller_Front_Ac
         }
         else
         {
-            $this->_redirect('checkout/onepage/failure');
+            $session = Mage::getSingleton('checkout/session');
+            $order = Mage::getModel('sales/order')->loadByIncrementId($session->getLastRealOrderId());
+            if ($order->getId()) {
+
+                //Restoring the cart
+                $quote = Mage::getModel('sales/quote')->load($order->getQuoteId());
+                    if ($quote->getId()) {
+                        $quote->setIsActive(true)->save();
+                        $session->setQuoteId($quoteId);
+                }
+                $er = 'Payment could not be processed. Please try again.'; 
+                $session->addError($er);
+                $this->_redirect('checkout/cart');
+            }    
+            else{
+            $this->_redirect('checkout/onepage/failure');    
+            }
+            
+            
         }
     }
 

@@ -1,93 +1,22 @@
 <?xml version="1.0"?>
 <package>
-    <name>Razorpay</name>
-    <version>1.1.12</version>
+    <name>Chapagain_AutoCurrency</name>
+    <version>0.2.0</version>
     <stability>stable</stability>
-    <license>MIT</license>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
     <channel>community</channel>
     <extends/>
-    <summary>Razorpay extension to accept payments from multiple banks and wallets.</summary>
-    <description>Razorpay is a payment aggregator to accept payments from various method including netbanking, credit card, debit card, wallets etc.</description>
-    <notes>This version uses the Razorpay API v1 for the best possible experience.</notes>
-    <authors>
-        <author>
-            <name>Mayank Amencherla</name>
-            <user>mayankamencherla</user>
-            <email>mayank.amencherla@razorpay.com</email>
-        </author>
-        <author>
-            <name>Abhay Rana</name>
-            <user>captn3mo</user>
-            <email>nemo@razorpay.com</email>
-        </author>
-        <author>
-            <name>Vivek Kumar</name>
-            <user>crims0n</user>
-            <email>vivek@razorpay.com</email>
-        </author>
-    </authors>
-    <date>2016-12-23</date>
-    <time>16:40:46</time>
-    <contents>
-        <target name="magecommunity">
-            <dir name="Razorpay">
-                <dir name="Payments">
-                    <dir name="Block">
-                        <file hash="15049195e1e3d519298a3bd5095990fe" name="Checkout.php"/>
-                    </dir>
-                    <dir name="Helper">
-                        <file hash="bbf4955d0095e8f53022936eca12aab6" name="Data.php"/>
-                        <file hash="308c55e7a7d56a27fcfb3983169c3491" name="ca-bundle.crt"/>
-                    </dir>
-                    <dir name="Model">
-                        <file hash="b7098d3b7be217d300f4c484c35fe463" name="Paymentmethod.php"/>
-                    </dir>
-                    <dir name="controllers">
-                        <file hash="6828300fcebf068f19209504cacd9dd7" name="CheckoutController.php"/>
-                    </dir>
-                    <dir name="etc">
-                        <file hash="1e19742b383a22af4518394c6a5e9a93" name="config.xml"/>
-                        <file hash="3045e0b5d2d2d0b52e47c23a64f99445" name="system.xml"/>
-                    </dir>
-                </dir>
-            </dir>
-        </target>
-        <target name="magedesign">
-            <dir name="frontend">
-                <dir name="base">
-                    <dir name="default">
-                        <dir name="layout">
-                            <file hash="34d6bfaa979b0e0a17bd8c7ed1558daa" name="razorpay.xml"/>
-                        </dir>
-                        <dir name="template">
-                            <dir name="razorpay">
-                                <file hash="568d98738658141ef1ce47edc5363494" name="checkout.phtml"/>
-                            </dir>
-                        </dir>
-                    </dir>
-                </dir>
-            </dir>
-        </target>
-        <target name="mageetc">
-            <dir name="modules">
-                <file hash="84978ab3d49e7f70fc8e1aa00cb2dc36" name="Razorpay_Payments.xml"/>
-            </dir>
-        </target>
-        <target name="mage">
-            <dir name="js">
-                <dir name="razorpay">
-                    <file hash="7d8379be889bfe8445515c48f111e79f" name="razorpay-utils.js"/>
-                </dir>
-            </dir>
-        </target>
-    </contents>
+    <summary>A currency switcher extension which automatically switches store's currency based on visitor's IP address.</summary>
+    <description>Auto Currency extension tracks visitor's IP address and automatically changes the store's currency to the visitor's location currency. Visitor can switch to his/her desired currency at any time.&#xD;
+&#xD;
+This extension uses two IP Address databases for IP Address lookup. One is MaxMind's GeoIP and the other is Webnet77's Ip2Country database. Shop admins have the option to choose between these two databases. The default one is Webnet77's Ip2Country database.</description>
+    <notes>Updated to latest MaxMind's database and geoip .inc file.&#xD;
+Added IPv6 support to MaxMind. &#xD;
+Added a new Ip2Country database of Webnet77.</notes>
+    <authors><author><name>Mukesh Chapagain</name><user>auto-converted</user><email>mukesh.chapagain@gmail.com</email></author></authors>
+    <date>2014-12-29</date>
+    <time>08:55:06</time>
+    <contents><target name="magecommunity"><dir name="Chapagain"><dir name="AutoCurrency"><dir name="Helper"><file name="Data.php" hash="d853b8b6c2baa439bc7c59cf14a0b023"/></dir><dir name="Model"><dir name="System"><dir name="Config"><dir name="Source"><file name="Database.php" hash="90a0a1ae6616c583284e51c629132e89"/></dir></dir></dir><file name="Store.php" hash="a16e9c173acc2d539b302c1500370f4a"/></dir><dir name="etc"><file name="config.xml" hash="0c51dfdb6090c2654013b0454f8b7f20"/><file name="system.xml" hash="53c818634d95422a194e1816bbc3190d"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Chapagain_AutoCurrency.xml" hash="dd65769f686b4c12011f5d09e18249ff"/></dir></target><target name="mage"><dir name="var"><dir name="geoip"><dir name="ip2country"><file name="Ip2Country.php" hash="e4c874a15745221b402b78b8c7366dc1"/><file name="ip2country.dat" hash="7fd6d50c4ffc64cf05498556c3673e84"/></dir><file name="GeoIP.dat" hash="28e77c28a1d378ba9aade6a919400f02"/><file name="GeoIPv6.dat" hash="c45653f7a894ba84ccab5efb24d6e0f1"/><file name="geoip.inc" hash="f8f704ef71b5d294c7530dc5637b6638"/></dir></dir></target></contents>
     <compatible/>
-    <dependencies>
-        <required>
-            <php>
-                <min>5.4.45</min>
-                <max>5.6.26</max>
-            </php>
-        </required>
-    </dependencies>
+    <dependencies/>
 </package>
